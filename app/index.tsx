@@ -1,15 +1,20 @@
-import { Text, View } from "react-native";
+import { Link } from "expo-router";
 
-export default function Index() {
+import { StyledText } from "@/components/StyledText";
+import { CenterView, SafeAreaView } from "@/components/StyledView";
+
+export default function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <SafeAreaView>
+      <CenterView backgroundColor="black">
+        <StyledText color="pink">In index</StyledText>
+        <Link href="/Signin" className="font-poppins text-white">
+          Sign in
+        </Link>
+        <Link href="/signup/Name" className="font-poppins text-white">
+          Name
+        </Link>
+      </CenterView>
+    </SafeAreaView>
   );
 }
