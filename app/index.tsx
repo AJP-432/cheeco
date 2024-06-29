@@ -14,6 +14,9 @@ export default function App() {
         <Link href="/signup/Name" className="font-poppins text-white">
           Name
         </Link>
+        <Link href="/Feed" className="font-poppins text-white">
+          Home
+        </Link>
       </CenterView>
     </SafeAreaView>
   );

@@ -33,7 +33,7 @@ export default function Bio() {
           <ArrowButton
             onPress={() => {
               console.log(signupData.bio);
-              router.push("/home");
+              router.push("/signup/Age");
             }}
             backgroundColor="pink"
             textColor="black"

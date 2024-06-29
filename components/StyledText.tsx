@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, type TextProps } from "react-native";
 
-export type StyledTextProps = TextProps & {
-  type?: "default" | "title" | "subtitle";
+type StyledTextProps = TextProps & {
+  type?: "default" | "title" | "subtitle" | "cardQuestion";
   color?: "black" | "white" | "pink";
 };
 
@@ -24,6 +24,7 @@ export function StyledText({
 
 const styles = {
   default: "font-poppins",
-  title: "font-poppins-bold text-4xl text-center",
+  title: "font-poppins-bold text-3xl text-center",
   subtitle: "font-poppins-bold text-xl text-center",
+  cardQuestion: "font-poppins text-3xl text-center",
 };

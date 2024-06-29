@@ -6,11 +6,11 @@ import {
   type ViewProps,
 } from "react-native";
 
-export type StyledViewProps = ViewProps & {
-  backgroundColor?: "black" | "white" | "pink";
+type StyledViewProps = ViewProps & {
+  backgroundColor?: "black" | "white" | "pink" | "transparent";
 };
 
-export type SpacerViewProps = ViewProps & {
+type SpacerViewProps = ViewProps & {
   type?: "horizontal" | "vertical";
   size?: number;
 };
@@ -24,7 +24,9 @@ export function CenterView({
   children,
 }: StyledViewProps): JSX.Element {
   return (
-    <View className={`flex-1 items-center justify-center bg-black`}>
+    <View
+      className={`flex-1 items-center justify-center bg-${backgroundColor}`}
+    >
       {children}
     </View>
   );
