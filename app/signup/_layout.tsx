@@ -9,7 +9,7 @@ export default function SignupLayout() {
         <Stack.Screen name="Name" options={{ headerShown: false }} />
         <Stack.Screen name="Username" options={{ headerShown: false }} />
         <Stack.Screen name="Bio" options={{ headerShown: false }} />
-        <Stack.Screen name="Age" options={{ headerShown: false }} />
+        <Stack.Screen name="DateOfBirth" options={{ headerShown: false }} />
         {/* <Stack.Screen name="Username" options={{ headerShown: false }} /> */}
       </Stack>
     </SignupProvider>

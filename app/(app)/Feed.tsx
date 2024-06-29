@@ -14,24 +14,28 @@ const feedData = [
     name: "Miranda",
     question: "I could never handle sitting on",
     answer: "french santa",
+    isLiked: true,
   },
   {
     id: "2",
     name: "John",
     question: "What is your favorite hobby?",
     answer: "Playing guitar",
+    isLiked: false,
   },
   {
     id: "3",
     name: "Samantha",
     question: "What is your favorite color?",
     answer: "Pink",
+    isLiked: true,
   },
   {
     id: "4",
     name: "Charlotte",
     question: "What is your favorite movie?",
     answer: "The Godfather",
+    isLiked: false,
   },
 ];
 
@@ -40,20 +44,22 @@ export default function Home() {
     <SafeAreaView>
       <CenterView backgroundColor="black">
         <View style={styles.container}>
-          <FlatList
-            data={feedData}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.cardContainer}>
-                <FeedCard {...item} />
-              </View>
-            )}
-            pagingEnabled
-            showsVerticalScrollIndicator={false}
-            snapToInterval={viewHeight}
-            snapToAlignment={"start"}
-            decelerationRate={"fast"}
-          />
+          <View className="flex-1 rounded-xl bg-pink p-1">
+            <FlatList
+              data={feedData}
+              keyExtractor={item => item.id}
+              renderItem={({ item }) => (
+                <View style={styles.cardContainer}>
+                  <FeedCard {...item} />
+                </View>
+              )}
+              pagingEnabled
+              showsVerticalScrollIndicator={false}
+              snapToInterval={viewHeight}
+              snapToAlignment={"start"}
+              decelerationRate={"fast"}
+            />
+          </View>
         </View>
       </CenterView>
     </SafeAreaView>

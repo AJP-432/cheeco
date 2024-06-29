@@ -8,11 +8,11 @@ import { ArrowButton } from "@/components/StyledButton";
 import { StyledText } from "@/components/StyledText";
 import { CenterView, SafeAreaView, SpacerView } from "@/components/StyledView";
 
-export default function Age() {
+export default function DateOfBirth() {
   const { signupData, updateSignupData } = useContext(SignupContext);
 
   const handleDateChange = (date: Date) => {
-    updateSignupData({ ...signupData, age: date });
+    updateSignupData({ ...signupData, dateOfBirth: date });
   };
 
   return (
@@ -26,7 +26,7 @@ export default function Age() {
         <SpacerView type="vertical" size={16}></SpacerView>
         <View className="w-4/5 flex-row justify-end">
           <ArrowButton
-            onPress={() => console.log(signupData.age)}
+            onPress={() => console.log(signupData.dateOfBirth)}
             backgroundColor="pink"
             textColor="black"
           />

@@ -5,7 +5,7 @@ interface SignupData {
   lastName: string;
   userName: string;
   bio: string;
-  age: Date;
+  dateOfBirth: Date;
 }
 
 interface SignupContextProps {
@@ -18,7 +18,7 @@ const defaultSignupData: SignupData = {
   lastName: "",
   userName: "",
   bio: "",
-  age: new Date(),
+  dateOfBirth: new Date(),
 };
 
 export const SignupContext = createContext<SignupContextProps>({
