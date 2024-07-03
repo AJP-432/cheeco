@@ -1,11 +1,12 @@
 import React, { ReactNode, createContext, useState } from "react";
 
 interface SignupData {
+  googleId: string;
+  email: string;
   firstName: string;
   lastName: string;
   userName: string;
   bio: string;
-  dateOfBirth: Date;
 }
 
 interface SignupContextProps {
@@ -14,11 +15,12 @@ interface SignupContextProps {
 }
 
 const defaultSignupData: SignupData = {
+  googleId: "",
+  email: "",
   firstName: "",
   lastName: "",
   userName: "",
   bio: "",
-  dateOfBirth: new Date(),
 };
 
 export const SignupContext = createContext<SignupContextProps>({

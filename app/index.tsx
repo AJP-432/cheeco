@@ -8,10 +8,10 @@ export default function App() {
     <SafeAreaView>
       <CenterView backgroundColor="black">
         <StyledText color="pink">In index</StyledText>
-        <Link href="/Signin" className="font-poppins text-white">
+        <Link href="/signup/Signin" className="font-poppins text-white">
           Sign in
         </Link>
-        <Link href="/signup/Name" className="font-poppins text-white">
+        <Link href="/signup/Username" className="font-poppins text-white">
           Name
         </Link>
         <Link href="/Feed" className="font-poppins text-white">

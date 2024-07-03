@@ -1,3 +1,5 @@
+import auth from "@react-native-firebase/auth";
+import firestore from "@react-native-firebase/firestore";
 import {
   GoogleOneTapSignIn,
   GoogleSignin,
@@ -6,7 +8,9 @@ import {
   statusCodes,
 } from "@react-native-google-signin/google-signin";
 import NonceGenerator from "a-nonce-generator";
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import { SignupContext } from "@/context/SignupContext";
 
 import { GoogleSignInButton } from "@/components/StyledButton";
 import { StyledText } from "@/components/StyledText";
@@ -15,6 +19,7 @@ import { CenterView, SafeAreaView, SpacerView } from "@/components/StyledView";
 export default function Signin() {
   const [userInfo, setUserInfo] = useState<OneTapUser | null>(null);
   const [isInProgress, setIsInProgress] = useState(false);
+  const { signupData, updateSignupData } = useContext(SignupContext);
 
   async function signIn() {
     try {
@@ -24,7 +29,40 @@ export default function Signin() {
       });
       setUserInfo(loadedUserInfo);
       console.log("Saved credential found");
-      console.log(loadedUserInfo);
+      const usersCollection = firestore().collection("Users");
+
+      const googleCredential = auth.GoogleAuthProvider.credential(
+        loadedUserInfo.idToken
+      );
+      auth().signInWithCredential(googleCredential);
+
+      // const userSnapshot = await usersCollection
+      //   .where("email", "==", loadedUserInfo.user.email)
+      //   .get();
+
+      // if (userSnapshot.empty) {
+      //   console.log(
+      //     "User not found, creating user: ",
+      //     loadedUserInfo.user.email,
+      //     loadedUserInfo.user.id,
+      //     loadedUserInfo.user.givenName,
+      //     loadedUserInfo.user.familyName
+      //   );
+      //   updateSignupData({
+      //     // @ts-ignore
+      //     googleId: loadedUserInfo.user.id,
+      //     // @ts-ignore
+      //     email: loadedUserInfo.user.email,
+      //     // @ts-ignore
+      //     firstName: loadedUserInfo.user.givenName,
+      //     // @ts-ignore
+      //     lastName: loadedUserInfo.user.familyName,
+      //   });
+      //   router.replace("/signup/Username");
+      // } else {
+      //   console.log("User found, signing in: ", loadedUserInfo.user.email);
+      //   router.replace("/home");
+      // }
     } catch (error) {
       if (isErrorWithCode(error)) {
         switch (error.code) {
@@ -39,6 +77,7 @@ export default function Signin() {
             });
             console.log("Finished creating account");
             console.log(userData);
+
             break;
           case statusCodes.SIGN_IN_CANCELLED:
             // sign in was cancelled

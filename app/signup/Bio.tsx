@@ -1,4 +1,5 @@
-import { router } from "expo-router";
+import auth from "@react-native-firebase/auth";
+import firestore from "@react-native-firebase/firestore";
 import React, { useContext } from "react";
 import { View } from "react-native";
 
@@ -31,9 +32,29 @@ export default function Bio() {
         <SpacerView type="vertical" size={16}></SpacerView>
         <View className="w-4/5 flex-row justify-end">
           <ArrowButton
-            onPress={() => {
+            onPress={async () => {
               console.log(signupData.bio);
-              router.push("/signup/Age");
+              console.log(signupData);
+
+              
+
+              const usersCollection = firestore().collection("users");
+              // Use the UID provided by Google as the document ID
+              const newUserDocRef = usersCollection.doc(signupData.googleId);
+
+              // Push new user data to Firestore
+              await newUserDocRef.set({
+                uid: signupData.googleId,
+                email: signupData.email,
+                firstName: signupData.firstName,
+                lastName: signupData.lastName,
+                userName: signupData.userName,
+                bio: signupData.bio,
+                createdAt: firestore.FieldValue.serverTimestamp(),
+              });
+
+              console.log("User data saved to Firestore");
+              
             }}
             backgroundColor="pink"
             textColor="black"
