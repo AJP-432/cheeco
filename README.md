@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# Cheeco
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Cheeco is a unique social media platform that combines the spontaneous, candid nature of BeReal with the fun, interactive gameplay of Cards Against Humanity. Cheeco encourages users to connect authentically and enjoy humor-driven interactions through daily prompts and community-driven content.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Daily Prompts**: Users receive a daily prompt that they respond to in three words.
+- **Friends Feature**: Connect with friends and view their responses.
+- **Cards Against Humanity Style**: Participate in humorous, user-generated card games inspired by Cards Against Humanity.
+- **Real-time Interaction**: Engage with friends and the community in real-time through responses and reactions.
+- **Privacy Controls**: Manage your visibility and interactions with comprehensive privacy settings.
 
-   ```bash
-   npm install
-   ```
+## Getting Started
 
-2. Start the app
+These instructions will help you set up the project on your local machine for development and testing purposes.
 
-   ```bash
-    npx expo start
-   ```
+### Prerequisites
 
-In the output, you'll find options to open the app in a
+- Node.js
+- Firebase account
+- Git
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Installation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. **Clone the repository:**
 
-## Get a fresh project
+    ```bash
+    git clone https://github.com/your-username/cheeco.git
+    cd cheeco
+    ```
 
-When you're ready, run:
+2. **Install dependencies:**
 
-```bash
-npm run reset-project
-```
+    ```bash
+    npm install
+    ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+3. **Set up Firebase:**
 
-## Learn more
+    - Create a new Firebase project.
+    - Enable Firestore and Authentication (Email/Password).
+    - Update `firebaseConfig` in the project with your Firebase credentials.
 
-To learn more about developing your project with Expo, look at the following resources:
+4. **Start the development server:**
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+    ```bash
+    npm run dev
+    ```
 
-## Join the community
+## Usage
 
-Join our community of developers creating universal apps.
+1. **Sign up or log in:**
+    - Create a new account or log in with an existing one.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+2. **Respond to daily prompts:**
+    - Each day, respond to the daily prompt in three words.
+
+3. **Connect with friends:**
+    - Send and accept friend requests to build your network.
+
+4. **Play interactive games:**
+    - Join and create card games for humorous and engaging interactions.
+
+## Contributing
+
+We are not currently seeking new team members. 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- Inspiration from BeReal and Cards Against Humanity.
+- Special thanks to all contributors and supporters.
+
